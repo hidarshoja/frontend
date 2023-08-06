@@ -176,7 +176,7 @@ export default function ForgotPass() {
                     <div className="input-item mb-5">
                       <InputCom
                         placeholder="* * * * * *"
-                        label={ServeLangItem()?.OTP}
+                        label={"رمز یک بار مصرف"}
                         name="otp"
                         type="text"
                         inputClasses="h-[50px]"

@@ -11,18 +11,19 @@ import InputCom from "../../Helpers/InputCom";
 import LoaderStyleOne from "../../Helpers/Loaders/LoaderStyleOne";
 import ServeLangItem from "../../Helpers/ServeLangItem";
 const SEND = ({ action }) => {
+
   return (
       <div>
-        <p className="text-xs text-qblack">
-          Please verify your acount. If you didnt get OTP, please resend your OTP
-          and verify
+        <p className="text-xs text-qblack" dir="rtl">
+        لطفاً حساب خود را تأیید کنید. اگر رمز یک بار مصرف دریافت نکردید، لطفاً رمز یک بار مصرف خود را دوباره ارسال کنید
+          و تایید کنید
         </p>
         <button
             type="button"
             onClick={action}
             className="text-sm text-blue-500 font-bold mt-2"
         >
-          Send OTP
+          ارسال رمز یک بار مصرف
         </button>
       </div>
   );
@@ -38,6 +39,9 @@ function LoginWidget({ redirect = true, loginActionPopup, notVerifyHandler }) {
   const [errors, setErrors] = useState(null);
   const [googleUrl, setGoogleUrl] = useState(null);
   const [faceBookUrl, setFaceBookUrl] = useState(null);
+
+  
+
   const rememberMe = () => {
     setValue(!checked);
   };
@@ -54,6 +58,7 @@ function LoginWidget({ redirect = true, loginActionPopup, notVerifyHandler }) {
         });
   };
   const doLogin = async () => {
+    // debugger
     setLoading(true);
     await apiRequest
         .login({
@@ -89,7 +94,8 @@ function LoginWidget({ redirect = true, loginActionPopup, notVerifyHandler }) {
                 icon: false,
                 theme: "colored",
               });
-              notVerifyHandler();
+              notVerifyHandler &&  notVerifyHandler();
+             
             } else {
               toast.error(ServeLangItem()?.Invalid_Credentials);
             }
@@ -202,7 +208,7 @@ function LoginWidget({ redirect = true, loginActionPopup, notVerifyHandler }) {
               </a>
             </Link>
           </div>
-          <div className="">
+          <div className="signin-area mb-3.5">
             <div className="flex justify-center">
               <button
                   onClick={doLogin}

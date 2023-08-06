@@ -121,6 +121,7 @@ export default function ProductCardStyleOne({ datas }) {
   );
   const [price, setPrice] = useState(null);
   const [offerPrice, setOffer] = useState(null);
+  const [buttonPresell , setButtonPresell ] = useState(false);
   const addToCart = (id) => {
     const data = {
       id: id,
@@ -343,6 +344,9 @@ export default function ProductCardStyleOne({ datas }) {
             </button>
           </div>
           {/* خرید شرایطی */}
+          {
+            buttonPresell && (
+
           <div className="absolute w-full h-10 px-[30px] left-0 top-40 group-hover:top-[40px] transition-all duration-300 ease-in-out">
             <button
               onClick={() => addToCart(datas.id)}
@@ -370,6 +374,8 @@ export default function ProductCardStyleOne({ datas }) {
               <div className="bg-shape w-full h-full absolute  bg-qblack"></div>
             </button>
           </div>
+            )
+          }
           {/* پایان */}
           <div className="reviews flex space-x-[1px] mb-3" dir="rtl">
             {Array.from(Array(datas.review), () => (

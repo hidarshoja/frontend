@@ -73,7 +73,7 @@ function VerifyWidget({ redirect = true, verifyActionPopup }) {
         <div className="input-item mb-5">
           <InputCom
             placeholder="* * * * * *"
-            label={ServeLangItem()?.OTP}
+            label={"رمز یک بار مصرف"}
             name="otp"
             type="text"
             inputClasses="h-[50px]"
@@ -99,7 +99,8 @@ function VerifyWidget({ redirect = true, verifyActionPopup }) {
               className="black-btn disabled:bg-opacity-50 disabled:cursor-not-allowed  w-full h-[50px] font-semibold flex justify-center bg-purple items-center"
             >
               <span className="text-sm text-white block">
-                {ServeLangItem()?.Verify}
+                {/* {ServeLangItem()?.Verify} */}
+                تأیید کنید
               </span>
               {loading && (
                 <span className="w-5 " style={{ transform: "scale(0.3)" }}>

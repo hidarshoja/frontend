@@ -40,6 +40,7 @@ export default function ProductCardRowStyleOne({ className, datas }) {
   const { websiteSetup } = useSelector((state) => state.websiteSetup);
   const [isProductInFlashSale, setData] = useState(null);
   const loginPopupBoard = useContext(LoginContext);
+  const [buttonPresell , setButtonPresell] = useState(false);
   useEffect(() => {
     if (websiteSetup) {
       const getId = websiteSetup.payload.flashSaleProducts.find(
@@ -335,6 +336,9 @@ export default function ProductCardRowStyleOne({ className, datas }) {
                   افزودن به سبد
                 </span>
               </button>
+              {
+                buttonPresell &&(
+
               <button
                 onClick={() => addToCart(datas.id)}
                 type="button"
@@ -345,6 +349,8 @@ export default function ProductCardRowStyleOne({ className, datas }) {
                    پیش فروش
                 </span>
               </button>
+                )
+              }
             </div>
           </div>
         </div>

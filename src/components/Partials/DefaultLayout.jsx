@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useRouter } from "next/router";
 import Script from "next/script";
-import { useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import TawkTo from "tawkto-react";
@@ -20,6 +20,8 @@ import LoginContext from "../Contexts/LoginContext";
 import Consent from "../Helpers/Consent";
 import ServeLangItem from "../Helpers/ServeLangItem";
 import MessageWidget from "../MessageWidget";
+
+const popupViewContext = createContext(null)
 
 export default function DefaultLayout({ children }) {
   const router = useRouter();
@@ -130,6 +132,9 @@ export default function DefaultLayout({ children }) {
     setPopupView("login");
   };
 
+  // console.log({'viwe' : popupView})
+  // console.log({'action': loginActionPopup})
+  // console.log({'verify': notVerifyHandler})
 
   useEffect(() => {
     if(getLoginContexts.loginPopup===false){
@@ -186,6 +191,7 @@ export default function DefaultLayout({ children }) {
   }, [dispatch, getLoginContexts.loginPopup]);
 
   return (
+    <popupViewContext.Provider value={popupView, setPopupView}>
     <>
       {gtagId && (
         <>
@@ -277,5 +283,6 @@ export default function DefaultLayout({ children }) {
       {/*  )}*/}
       {/*</LoginContext.Consumer>*/}
     </>
+    </popupViewContext.Provider>
   );
 }

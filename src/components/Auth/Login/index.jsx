@@ -1,7 +1,7 @@
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import isAuth from "../../../../Middleware/isAuth";
 import LoginLayout from "./LoginLayout";
-import { useSelector } from "react-redux";
-import { useEffect, useState } from "react";
 import LoginWidget from "./LoginWidget";
 function Login({ isLayout = true }) {
   const { websiteSetup } = useSelector((state) => state.websiteSetup);
