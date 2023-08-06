@@ -10,6 +10,8 @@ import LoginContext from "../../Contexts/LoginContext";
 import InputCom from "../../Helpers/InputCom";
 import LoaderStyleOne from "../../Helpers/Loaders/LoaderStyleOne";
 import ServeLangItem from "../../Helpers/ServeLangItem";
+import { popupViewContext } from "../../Partials/DefaultLayout";
+
 const SEND = ({ action }) => {
 
   return (
@@ -28,7 +30,8 @@ const SEND = ({ action }) => {
       </div>
   );
 };
-function LoginWidget({ redirect = true, loginActionPopup, notVerifyHandler }) {
+function LoginWidget({ redirect = true}) {
+  const {loginActionPopup, notVerifyHandler }= useContext(popupViewContext)
   const router = useRouter();
   const dispatch = useDispatch();
   const loginPopupBoard = useContext(LoginContext);
@@ -94,7 +97,7 @@ function LoginWidget({ redirect = true, loginActionPopup, notVerifyHandler }) {
                 icon: false,
                 theme: "colored",
               });
-              notVerifyHandler &&  notVerifyHandler();
+              notVerifyHandler();
              
             } else {
               toast.error(ServeLangItem()?.Invalid_Credentials);

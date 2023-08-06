@@ -21,7 +21,7 @@ import Consent from "../Helpers/Consent";
 import ServeLangItem from "../Helpers/ServeLangItem";
 import MessageWidget from "../MessageWidget";
 
-const popupViewContext = createContext(null)
+export const popupViewContext = createContext(null)
 
 export default function DefaultLayout({ children }) {
   const router = useRouter();
@@ -191,7 +191,7 @@ export default function DefaultLayout({ children }) {
   }, [dispatch, getLoginContexts.loginPopup]);
 
   return (
-    <popupViewContext.Provider value={popupView, setPopupView}>
+    <popupViewContext.Provider value={popupView, setPopupView , notVerifyHandler, loginActionPopup}>
     <>
       {gtagId && (
         <>
@@ -250,8 +250,6 @@ export default function DefaultLayout({ children }) {
                         {popupView === "login" ? (
                             <LoginWidget
                                 redirect={false}
-                                loginActionPopup={loginActionPopup}
-                                notVerifyHandler={notVerifyHandler}
                             />
                         ) : popupView === "signup" ? (
                             <SignupWidget
