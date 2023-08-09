@@ -97,22 +97,25 @@ export default function ProductsTable({ className, products }) {
   };
   const { currency_icon } = settings();
   return (
-    <div className={`w-full ${className || ""}`}>
+    <div className={`w-full ${className || ""}`} dir="rtl">
       <div className="relative w-full overflow-x-auto border border-[#EDEDED]">
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
           <tbody>
             {/* table heading */}
             <tr className="text-[13px] font-medium text-black bg-[#F6F6F6] whitespace-nowrap px-2 border-b default-border-bottom uppercase">
               <td className="py-4 capitalize pl-10 block whitespace-nowrap">
-                {ServeLangItem()?.Product}
+                {/* {ServeLangItem()?.Product} */}
+                محصول
               </td>
 
               <td className="py-4 capitalize whitespace-nowrap text-center">
-                {ServeLangItem()?.Price}
+                {/* {ServeLangItem()?.Price} */}
+                قیمت
               </td>
 
               <td className="py-4 capitalize whitespace-nowrap text-center block">
-                {ServeLangItem()?.Action}
+                {/* {ServeLangItem()?.Action} */}
+                اقدام
               </td>
             </tr>
             {/*table heading end*/}

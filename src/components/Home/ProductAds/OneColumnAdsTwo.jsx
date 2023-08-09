@@ -4,7 +4,7 @@ import ServeLangItem from "../../Helpers/ServeLangItem";
 
 function OneColumnAdsTwo({ data }) {
   return (
-    <div className={`one-column-ads-one sm:h-[166px] h-[100px] w-full`}>
+    <div className={`one-column-ads-one sm:h-[166px] h-[100px] w-full`} dir="ltr">
       <div
         data-aos="fade-right"
         style={{
@@ -41,7 +41,7 @@ function OneColumnAdsTwo({ data }) {
                       مشاهده
                       
                     </span>
-                    <span className="leading-[30px]">
+                    {/* <span className="leading-[30px]">
                       <svg
                         width="7"
                         height="11"
@@ -65,7 +65,7 @@ function OneColumnAdsTwo({ data }) {
                           transform="rotate(135 7 5.54492)"
                         />
                       </svg>
-                    </span>
+                    </span> */}
                   </div>
                   <div className="w-[82px] transition-all duration-300 ease-in-out group-hover:h-4 h-[0px] primary-bg absolute left-0 rtl:right-0 bottom-0 z-10"></div>
                 </div>

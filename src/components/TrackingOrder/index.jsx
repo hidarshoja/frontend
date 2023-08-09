@@ -41,13 +41,15 @@ function TrackingOrder() {
           ]}
         />
       </div>
-      <div className="content-wrapper w-full mb-[40px]">
+      <div className="content-wrapper w-full mb-[40px]" dir="rtl">
         <div className="container-x mx-auto">
           <h1 className="text-[22px] text-qblack font-semibold leading-9">
-            {ServeLangItem()?.Track_Your_Order}
+            {/* {ServeLangItem()?.Track_Your_Order} */}
+            سفارشتان را پیگیری کنید
           </h1>
           <p className="text-[15px] text-qgraytwo leading-8 mb-5">
-            {ServeLangItem()?.Enter_your_order_tracking_number_and_your_secret_id}.
+            {/* {ServeLangItem()?.Enter_your_order_tracking_number_and_your_secret_id}. */}
+            شماره پیگیری سفارش و شناسه مخفی خود را وارد کنید
           </p>
           <div className="w-full bg-white lg:px-[30px] px-5 py-[23px] lg:flex items-center">
             <div className="lg:w-[642px] w-full">
@@ -56,8 +58,8 @@ function TrackingOrder() {
                 <InputCom
                     value={orderNumber}
                     inputHandler={(e) => setOrderNumber(e.target.value)}
-                    placeholder="Order Number"
-                    label="Order Tracking Number*"
+                    placeholder="شماره سفارش"
+                    label="شماره پیگیری سفارش"
                     inputClasses="w-full h-[50px]"
                 />
               </div>
@@ -66,14 +68,17 @@ function TrackingOrder() {
                   value={date}
                   inputHandler={(e) => setDate(e.target.value)}
                   placeholder="23/09/2022"
-                  label="Delivery Date"
+                  label="تاریخ تحویل"
                   inputClasses="w-full h-[50px]"
                 />
               </div>
 
               <button onClick={trackOrder} type="button">
                 <div className="w-[142px] h-[50px] black-btn flex justify-center items-center">
-                  <span>{ServeLangItem()?.Track_Now}</span>
+                  <span>
+                  {/* {ServeLangItem()?.Track_Now} */}
+                  اکنون پیگیری کنید
+                  </span>
                 </div>
               </button>
             </div>

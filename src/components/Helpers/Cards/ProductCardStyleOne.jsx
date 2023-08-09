@@ -417,7 +417,7 @@ export default function ProductCardStyleOne({ datas }) {
               {offerPrice ? (
                 <span>
                 {/* {currency_icon &&  Number(price).toLocaleString() } */}
-                {currency_icon &&  Number(1000).toLocaleString() }
+                {currency_icon &&  Number(price).toLocaleString() }
                 </span>
               ) : (
                 <>

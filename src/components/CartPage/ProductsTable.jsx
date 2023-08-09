@@ -65,17 +65,28 @@ export default function ProductsTable({
   return (
     <div className={`w-full ${className || ""}`}>
       <div className="relative w-full overflow-x-auto border border-[#EDEDED]">
-        <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <table className="w-full text-sm text-center text-gray-500 dark:text-gray-400" dir="rtl">
           <tbody>
             {/* table heading */}
             <tr className="text-[13px] font-medium text-black bg-[#F6F6F6] whitespace-nowrap px-2 border-b default-border-bottom uppercase">
               <td className="py-4 pl-10 block whitespace-nowrap min-w-[300px]">
-                {ServeLangItem()?.Product}
+                {/* {ServeLangItem()?.Product} */}
+                نام محصول
               </td>
-              <td className="py-4 whitespace-nowrap text-center">{ServeLangItem()?.Price}</td>
-              <td className="py-4 whitespace-nowrap  text-center">{ServeLangItem()?.quantity}</td>
-              <td className="py-4 whitespace-nowrap  text-center">{ServeLangItem()?.total}</td>
-              <td className="py-4 whitespace-nowrap text-right w-[114px]"></td>
+              <td className="py-4 whitespace-nowrap text-center">
+              {/* {ServeLangItem()?.Price} */}
+              قیمت 
+              </td>
+              <td className="py-4 whitespace-nowrap  text-center">
+              {/* {ServeLangItem()?.quantity} */}
+              تعداد
+              </td>
+              <td className="py-4 whitespace-nowrap  text-center">
+              {/* {ServeLangItem()?.total} */}
+              جمع
+              </td>
+              <td className="py-4 whitespace-nowrap text-right w-[114px]">
+              </td>
             </tr>
             {/* table heading end */}
             {storeCarts &&

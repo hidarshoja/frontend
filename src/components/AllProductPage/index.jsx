@@ -326,7 +326,7 @@ export default function AllProductPage({ response, sellerInfo }) {
   return (
     <>
       <Layout>
-        <div className="products-page-wrapper w-full">
+        <div className="products-page-wrapper w-full" dir="rtl">
           <div className="container-x mx-auto">
             {sellerInfo && (
               <div

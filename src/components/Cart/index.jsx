@@ -151,14 +151,14 @@ export default function Cart({ className }) {
         }`}
       >
         <div className="w-full h-full">
-          <div className="product-items h-[310px] overflow-y-scroll">
+          <div className="product-items h-[310px] overflow-y-scroll pl-2">
             <ul>
               {getCarts &&
                 getCarts.length > 0 &&
                 getCarts.map((item, i) => (
                   <li
                     key={item.id}
-                    className="w-full h-full flex justify-between"
+                    className="w-full h-full flex justify-between px-4"
                   >
                     <div className="flex space-x-[6px] justify-center items-center px-4 my-[20px]">
                       <div className="w-[65px] h-full relative">
@@ -238,7 +238,7 @@ export default function Cart({ className }) {
             <div className="h-[1px] bg-[#F0F1F3]"></div>
           </div>
           <div className="product-actions px-4 mb-[30px]">
-            <div className="total-equation flex justify-between items-center mb-[28px] flex-row-reverse">
+            <div className="total-equation flex justify-between items-center mb-[28px] flex-row-reverse pl-8">
               <span className="text-[15px] font-500 text-qblack">
               جمع سبد خرید
               </span>
@@ -249,9 +249,9 @@ export default function Cart({ className }) {
                 {currency_icon + (totalPrice ? Number(totalPrice).toLocaleString() : 0)}
               </span>
             </div>
-            <div className="product-action-btn">
+            <div className="product-action-btn pl-8">
               <Link href="/cart">
-                <div className="gray-btn w-full h-[50px] mb-[10px] cursor-pointer ">
+                <div className="gray-btn w-full h-[50px] mb-[10px] cursor-pointer">
                   <span>
                   {/* {ServeLangItem()?.View_Cart} */}
                   مشاهده سبد خرید

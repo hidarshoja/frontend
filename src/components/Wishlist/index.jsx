@@ -60,18 +60,20 @@ function Wishlist() {
                 className="mb-[30px]"
               />
               {wishlists && wishlists.data.length > 0 && (
-                <div className="w-full mt-[30px] flex sm:justify-end justify-start">
+                <div className="w-full mt-[30px] flex sm:justify-end justify-start" dir="rtl">
                   <div className="sm:flex sm:space-x-[30px] rtl:space-x-reverse items-center">
                     <button onClick={() => clearList()} type="button">
                       <div className="w-full text-sm font-semibold text-qred mb-5 sm:mb-0">
-                        {ServeLangItem()?.Clean_Wishlist}
+                        {/* {ServeLangItem()?.Clean_Wishlist} */}
+                        پاک کردن فهرست
                       </div>
                     </button>
                     <Link href="/cart">
                       <div className="w-[180px] h-[50px] cursor-pointer">
                         <div className="yellow-btn flex justify-center">
                           <span className="w-full text-sm font-semibold text-center">
-                            {ServeLangItem()?.View_Cards}
+                            {/* {ServeLangItem()?.View_Cards} */}
+                            مشاهده کارت ها
                           </span>
                         </div>
                       </div>

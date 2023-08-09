@@ -55,6 +55,16 @@ export default function TopBar({ className, contact }) {
                   </Link>
                 </li>
                 <li>
+                  <Link href="/prebuy" passHref>
+                    <a rel="noopener noreferrer">
+                      <span className="text-xs leading-6 text-qblack font-500 cursor-pointer">
+                        {/* {ServeLangItem()?.Track_Order} */}
+                        ثبت نام پیش فروش
+                      </span>
+                    </a>
+                  </Link>
+                </li>
+                <li>
                   <Link href="/faq" passHref>
                     <a rel="noopener noreferrer">
                       <span className="text-xs leading-6 text-qblack font-500 cursor-pointer">

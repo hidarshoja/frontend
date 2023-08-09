@@ -45,7 +45,8 @@ export default function Selectbox({
         <div className={`my-select-box-section ${toggle ? "open" : ""}`}>
           <ul className="list">
             <li className="cursor-not-allowed selected pointer-events-none">
-              {ServeLangItem()?.Select_One}
+              {/* {ServeLangItem()?.Select_One} */}
+              یکی را انتخاب کن
             </li>
             {datas &&
               datas.length > 0 &&

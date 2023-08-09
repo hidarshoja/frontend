@@ -22,8 +22,7 @@ function CheckProductIsExistsInFlashSale({
     }
   }, [websiteSetup]);
   const calcProductPrice = (id, price) => {
-    // console.log(id, price);
-    // console.log(flashSale);
+   
     if (flashSale && flashSale.flashSaleActive) {
       const getId = flashSale.flashSaleProducts.find(
         (item) => parseInt(item.product_id) === parseInt(id)
@@ -48,21 +47,10 @@ function CheckProductIsExistsInFlashSale({
 
   
   const { currency_icon } = settings();
-  // if (sign) {
-   //return " " + parseFloat(calPrice).toFixed(3) + " " + "  تومان   ";
-   return  Number(12500000).toLocaleString()+ " " + "  تومان   ";
-  //  return  Number(calPrice).toLocaleString()+ " " + "  تومان   ";
-  // return " " +  Commafy(calPrice) + " " + "  تومان   ";
-  // return currency_icon ? parseFloat(calPrice).toFixed(3);
-      // + " تومان " :  parseFloat(calPrice).toFixed(3) + " تومان " ;
-  // } else {
-  //   return parseFloat(calPrice).toFixed(6);
-  // }
+  
+   return  Number(calPrice).toLocaleString()+ " " + "  تومان   ";
 }
 
 export default CheckProductIsExistsInFlashSale;
 
-//(27 * 20 /100)-27
 
-//offer =(20/100*price)
-//total=price-offer

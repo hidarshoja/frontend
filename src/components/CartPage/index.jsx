@@ -143,20 +143,23 @@ function CardPage() {
                 <div className="flex space-x-4 rtl:space-x-reverse items-center">
                   <button onClick={clearCart} type="button">
                     <div className="w-full text-sm font-semibold text-qred mb-5 sm:mb-0">
-                      {ServeLangItem()?.Clear_Cart}
+                      {/* {ServeLangItem()?.Clear_Cart} */}
+                      پاک کردن سبد خرید
                     </div>
                   </button>
                   <Link href="/cart">
                     <div className="w-[140px] h-[50px] bg-[#F6F6F6] flex justify-center items-center cursor-pointer">
                       <span className="text-sm font-semibold">
-                        {ServeLangItem()?.Update_Cart}
+                        {/* {ServeLangItem()?.Update_Cart} */}
+                        به روز رسانی سبد خرید
                       </span>
                     </div>
                   </Link>
                   <Link href="/checkout">
                     <div className="w-[300px] h-[50px] black-btn flex justify-center items-center cursor-pointer">
                       <span className="text-sm font-semibold">
-                        {ServeLangItem()?.Proceed_to_Checkout}
+                        {/* {ServeLangItem()?.Proceed_to_Checkout} */}
+                        ادامه پرداخت
                       </span>
                     </div>
                   </Link>

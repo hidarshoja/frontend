@@ -128,7 +128,7 @@ function Profile() {
   const checkSellerAndVendor =
     Multivendor() === 1 && dashBoardData && dashBoardData.is_seller;
   return (
-    <div className="profile-page-wrapper w-full">
+    <div className="profile-page-wrapper w-full" dir="rtl">
       <div className="container-x mx-auto">
         <div className="w-full my-10">
           <BreadcrumbCom
@@ -140,12 +140,14 @@ function Profile() {
           <div className="w-full bg-white xl:p-10 p-5">
             <div className="title-area w-full flex justify-between items-center">
               <h1 className="text-[22px] font-bold text-qblack">
-                {ServeLangItem()?.Your_Dashboard}
+                {/* {ServeLangItem()?.Your_Dashboard} */}
+                داشبورد شما
               </h1>
               {checkSellerAndVendor && (
                 <div className="switch-dashboard flex md:flex-row md:space-x-3 flex-col space-y-3 md:space-y-0 rtl:space-x-reverse rtl:space-x-reverse items-center">
                   <p className="text-qgray text-base">
-                    {ServeLangItem()?.Switch_Dashboard}
+                    {/* {ServeLangItem()?.Switch_Dashboard} */}
+                    داشبورد را تغییر دهید
                   </p>
                   <button
                     onClick={switchDashboardHandler}
@@ -171,7 +173,8 @@ function Profile() {
                           <IcoDashboard />
                         </span>
                         <span className=" font-normal text-base capitalize cursor-pointer">
-                          {ServeLangItem()?.Dashboard}
+                          {/* {ServeLangItem()?.Dashboard} */}
+                          داشبورد
                         </span>
                       </div>
                     </Link>
@@ -183,7 +186,8 @@ function Profile() {
                           <IcoPeople />
                         </span>
                         <span className=" font-normal text-base capitalize cursor-pointer">
-                          {ServeLangItem()?.Personal_Info}
+                          {/* {ServeLangItem()?.Personal_Info} */}
+                          اطلاعات شخصی
                         </span>
                       </div>
                     </Link>
@@ -208,7 +212,8 @@ function Profile() {
                           <IcoCart />
                         </span>
                         <span className=" font-normal text-base capitalize cursor-pointer">
-                          {ServeLangItem()?.Order}
+                          {/* {ServeLangItem()?.Order} */}
+                          سفارش
                         </span>
                       </div>
                     </Link>
@@ -220,7 +225,8 @@ function Profile() {
                           <IcoLove />
                         </span>
                         <span className=" font-normal text-base capitalize cursor-pointer">
-                          {ServeLangItem()?.Wishlist}
+                          {/* {ServeLangItem()?.Wishlist} */}
+                          لیست علاقه مندیها
                         </span>
                       </div>
                     </Link>
@@ -232,7 +238,8 @@ function Profile() {
                           <IcoAdress />
                         </span>
                         <span className=" font-normal text-base capitalize cursor-pointer">
-                          {ServeLangItem()?.Address}
+                          {/* {ServeLangItem()?.Address} */}
+                          آدرس
                         </span>
                       </div>
                     </Link>
@@ -244,7 +251,8 @@ function Profile() {
                           <IcoReviewHand />
                         </span>
                         <span className=" font-normal text-base capitalize cursor-pointer">
-                          {ServeLangItem()?.Reviews}
+                          {/* {ServeLangItem()?.Reviews} */}
+                          بررسی ها
                         </span>
                       </div>
                     </Link>
@@ -256,7 +264,8 @@ function Profile() {
                           <IcoPassword />
                         </span>
                         <span className=" font-normal text-base capitalize cursor-pointer">
-                          {ServeLangItem()?.Change_Password}
+                          {/* {ServeLangItem()?.Change_Password} */}
+                          رمز عبور را تغییر دهید
                         </span>
                       </div>
                     </Link>
@@ -282,7 +291,8 @@ function Profile() {
                         <IcoLogout />
                       </span>
                       <span className=" font-normal text-base capitalize cursor-pointer">
-                        {ServeLangItem()?.Logout}
+                        {/* {ServeLangItem()?.Logout} */}
+                        خروج
                       </span>
                     </div>
                   </div>

@@ -202,8 +202,8 @@ export default function ProfileTab({ profileInfo, updatedProfile }) {
             <div className="lg:w-[570px] w-full ">
               <div className="input-item mb-8">
                 <InputCom
-                  label={ServeLangItem()?.Name}
-                  placeholder="Name"
+                  label={"نام"}
+                  placeholder="نام خود را وارد کنید"
                   type="text"
                   inputClasses="h-[50px]"
                   value={name}
@@ -222,9 +222,11 @@ export default function ProfileTab({ profileInfo, updatedProfile }) {
                 <div className="md:w-1/2 w-full h-full mb-8 md:mb-0">
                   <div>
                     <p className="input-label capitalize block  mb-2 text-qgray text-[13px] font-normal">
-                      {ServeLangItem()?.Email}
+                      {/* {ServeLangItem()?.Email} */}
+                      ایمیل
                       <span className="text-yellow-500 text-xs ml-1">
-                        ({ServeLangItem()?.Read_Only})
+                        {/* ({ServeLangItem()?.Read_Only}) */}
+                        فقط خواندنی
                       </span>
                     </p>
                     <div className="w-full border border-yellow-500 px-6  h-[50px] bg-yellow-50 text-dark-gray flex items-center cursor-not-allowed rounded">
@@ -250,8 +252,8 @@ export default function ProfileTab({ profileInfo, updatedProfile }) {
                 </div>
                 <div className="md:w-1/2 w-full h-full relative">
                   <InputCom
-                    label={ServeLangItem()?.Phone_Number}
-                    placeholder={ServeLangItem()?.Phone_Number}
+                    label={"شماره تماس"}
+                    placeholder={"شماره تماس خود را وارد کنید "}
                     type="text"
                     inputClasses="h-[50px] placeholder:capitalize pl-20"
                     value={phone ? phone : ""}
@@ -294,7 +296,8 @@ export default function ProfileTab({ profileInfo, updatedProfile }) {
 
               <div className="mb-6">
                 <h1 className="input-label capitalize block  mb-2 text-qgray text-[13px] font-normal">
-                  {ServeLangItem()?.Country}*
+                  {/* {ServeLangItem()?.Country}* */}
+                  کشور
                 </h1>
                 <div
                   className={`w-full h-[50px] border border-qgray-border px-5 flex justify-between items-center mb-2 ${
@@ -360,7 +363,8 @@ export default function ProfileTab({ profileInfo, updatedProfile }) {
               <div className="md:flex md:space-x-5 rtl:space-x-reverse items-center mb-6">
                 <div className="md:w-1/2 mb-8 md:mb-0">
                   <h1 className="input-label capitalize block  mb-2 text-qgray text-[13px] font-normal">
-                    {ServeLangItem()?.State}*
+                    {/* {ServeLangItem()?.State}* */}
+                    استان
                   </h1>
                   <div
                     className={`w-full h-[50px] border border-qgray-border px-5 flex justify-between items-center mb-2 ${
@@ -423,7 +427,8 @@ export default function ProfileTab({ profileInfo, updatedProfile }) {
                 </div>
                 <div className="md:w-1/2 w-full">
                   <h1 className="input-label capitalize block  mb-2 text-qgray text-[13px] font-normal">
-                    {ServeLangItem()?.City}*
+                    {/* {ServeLangItem()?.City}* */}
+                    شهر
                   </h1>
                   <div
                     className={`w-full h-[50px] border border-qgray-border px-5 flex justify-between items-center mb-2 ${
@@ -488,8 +493,8 @@ export default function ProfileTab({ profileInfo, updatedProfile }) {
 
               <div className="input-item mb-8">
                 <InputCom
-                  label={ServeLangItem()?.Address}
-                  placeholder={ServeLangItem()?.Your_address_Here}
+                  label={"ادرس"}
+                  placeholder={"آدرس خود را وارد کنید "}
                   type="text"
                   inputClasses="h-[50px]"
                   value={address}
@@ -508,8 +513,9 @@ export default function ProfileTab({ profileInfo, updatedProfile }) {
             <div className="flex-1">
               <div className="update-logo w-full mb-9">
                 <h1 className="text-xl tracking-wide font-bold text-qblack flex items-center mb-2">
-                  {ServeLangItem()?.Update_Profile}
-                  <span className="ml-1">
+                  {/* {ServeLangItem()?.Update_Profile} */}
+                  بروزرسانی پروفایل
+                  {/* <span className="ml-1">
                     <svg
                       width="20"
                       height="20"
@@ -523,10 +529,11 @@ export default function ProfileTab({ profileInfo, updatedProfile }) {
                         fillOpacity="0.6"
                       />
                     </svg>
-                  </span>
+                  </span> */}
                 </h1>
                 <p className="text-sm text-qgraytwo mb-5 ">
-                  {ServeLangItem()?.Profile_of_at_least_Size}
+                  {/* {ServeLangItem()?.Profile_of_at_least_Size} */}
+                  حداقل اندازه عکس
                   <span className="ml-1 text-qblack">300x300</span>
                 </p>
                 <div className="flex xl:justify-center justify-start">
@@ -578,14 +585,16 @@ export default function ProfileTab({ profileInfo, updatedProfile }) {
           </div>
           <div className="action-area flex space-x-4 rtl:space-x-reverse items-center">
             <button type="button" className="text-sm text-qred font-semibold">
-              {ServeLangItem()?.Cancel}
+              {/* {ServeLangItem()?.Cancel} */}
+              انصراف
             </button>
             <button
               onClick={updateProfile}
               type="button"
               className="w-[164px] h-[50px] primary-bg rounded text-qblack text-sm"
             >
-              {ServeLangItem()?.Update_Profile}
+              {/* {ServeLangItem()?.Update_Profile} */}
+              به روزرسانی پروفایل
             </button>
           </div>
         </>

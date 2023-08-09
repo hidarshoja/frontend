@@ -140,10 +140,13 @@ export default function Dashboard({ dashBoardData }) {
         <div className="welcome-msg w-full">
           <div>
             <p className="text-qblack text-lg">
-              {ServeLangItem()?.Hello}, {dashBoardData.personInfo.name}
+              {/* {ServeLangItem()?.Hello}, */}
+              سلام
+               {dashBoardData.personInfo.name}
             </p>
             <h1 className="font-bold text-[24px] text-qblack">
-              {ServeLangItem()?.Welcome_to_your_Profile}
+              {/* {ServeLangItem()?.Welcome_to_your_Profile} */}
+              به پرفایل  خود خوش آمدید
             </h1>
           </div>
         </div>
@@ -174,7 +177,8 @@ export default function Dashboard({ dashBoardData }) {
             </span>
             </div>
             <p className="text-xl text-white group-hover:text-qblacktext mt-5">
-              {ServeLangItem()?.New_Orders}
+              {/* {ServeLangItem()?.New_Orders} */}
+              سفارشات جدید
             </p>
             <span className="text-[40px] text-white group-hover:text-qblacktext font-bold leading-none mt-1 block">
             {dashBoardData.pendingOrder}
@@ -198,7 +202,8 @@ export default function Dashboard({ dashBoardData }) {
             </span>
             </div>
             <p className="text-xl text-white group-hover:text-qblacktext mt-5">
-              {ServeLangItem()?.Delivery_Completed}
+              {/* {ServeLangItem()?.Delivery_Completed} */}
+              تحویل تکمیل شد
             </p>
             <span className="text-[40px] text-white group-hover:text-qblacktext font-bold leading-none mt-1 block">
             {dashBoardData.completeOrder}
@@ -230,7 +235,8 @@ export default function Dashboard({ dashBoardData }) {
             </span>
             </div>
             <p className="text-xl text-white group-hover:text-qblacktext mt-5">
-              {ServeLangItem()?.Total_Orders}
+              {/* {ServeLangItem()?.Total_Orders} */}
+              کل سفارشات
             </p>
             <span className="text-[40px] text-white group-hover:text-qblacktext font-bold leading-none mt-1 block">
             {dashBoardData.totalOrder}
@@ -240,14 +246,18 @@ export default function Dashboard({ dashBoardData }) {
         <div className="dashboard-info mt-8 mb-8 xl:flex justify-between items-center bg-primarygray xl:p-7 p-3">
           <div className="mb-10 xl:mb-0">
             <p className="title text-[22px] font-semibold">
-              {ServeLangItem()?.Personal_Information}
+              {/* {ServeLangItem()?.Personal_Information} */}
+              اطلاعات شخصی
             </p>
             <div className="mt-5">
               <table>
                 <tbody>
                 <tr className="flex mb-5">
                   <td className="text-base text-qgraytwo w-[100px] block capitalize">
-                    <p>{ServeLangItem()?.Name}:</p>
+                    <p>
+                    {/* {ServeLangItem()?.Name} */}
+                    نام
+                    :</p>
                   </td>
                   <td className="text-base text-qblack font-medium">
                     {dashBoardData.personInfo.name}
@@ -255,7 +265,11 @@ export default function Dashboard({ dashBoardData }) {
                 </tr>
                 <tr className="flex mb-5">
                   <td className="text-base text-qgraytwo w-[100px] block capitalize">
-                    <p>{ServeLangItem()?.Email}:</p>
+                    <p>
+                    {/* {ServeLangItem()?.Email} */}
+                    ایمیل
+                    :
+                    </p>
                   </td>
                   <td className="text-base text-qblack font-medium">
                     {dashBoardData.personInfo.email}
@@ -263,7 +277,11 @@ export default function Dashboard({ dashBoardData }) {
                 </tr>
                 <tr className="flex mb-5">
                   <td className="text-base text-qgraytwo w-[100px] block capitalize">
-                    <p>{ServeLangItem()?.phone}:</p>
+                    <p>
+                    {/* {ServeLangItem()?.phone} */}
+                    شماره تماس
+                    :
+                    </p>
                   </td>
                   <td className="text-base text-qblack font-medium">
                     {dashBoardData.personInfo.phone
@@ -273,7 +291,10 @@ export default function Dashboard({ dashBoardData }) {
                 </tr>
                 <tr className="flex mb-5">
                   <td className="text-base text-qgraytwo w-[100px] block capitalize">
-                    <p>{ServeLangItem()?.Address}:</p>
+                    <p>
+                    {/* {ServeLangItem()?.Address} */}
+                    آدرس
+                    :</p>
                   </td>
                   <td className="text-base text-qblack font-medium">
                     {country &&
@@ -294,14 +315,18 @@ export default function Dashboard({ dashBoardData }) {
                 <div className="w-[1px] h-[164px] bg-[#E4E4E4] lg:block hidden"></div>
                 <div className="lg:ml-6">
                   <p className="title text-[22px] font-semibold">
-                    {ServeLangItem()?.Shop_Information}
+                    {/* {ServeLangItem()?.Shop_Information} */}
+                    اطلاعات فروشگاه
                   </p>
                   <div className="mt-5">
                     <table>
                       <tbody>
                       <tr className="flex mb-5">
                         <td className="text-base text-qgraytwo w-[100px] block capitalize">
-                          <p>{ServeLangItem()?.Name}:</p>
+                          <p>
+                          {/* {ServeLangItem()?.Name} */}
+                          نام
+                          :</p>
                         </td>
                         <td className="text-base text-qblack font-medium">
                           {dashBoardData.sellerInfo.shop_name}
@@ -309,7 +334,10 @@ export default function Dashboard({ dashBoardData }) {
                       </tr>
                       <tr className="flex mb-5">
                         <td className="text-base text-qgraytwo w-[100px] block capitalize">
-                          <p>{ServeLangItem()?.Email}:</p>
+                          <p>
+                          {/* {ServeLangItem()?.Email} */}
+                          ایمیل
+                          :</p>
                         </td>
                         <td className="text-base text-qblack font-medium">
                           {dashBoardData.sellerInfo.email}
@@ -317,7 +345,10 @@ export default function Dashboard({ dashBoardData }) {
                       </tr>
                       <tr className="flex mb-5">
                         <td className="text-base text-qgraytwo w-[100px] block capitalize">
-                          <p>{ServeLangItem()?.phone}:</p>
+                          <p>
+                          {/* {ServeLangItem()?.phone} */}
+                          ایمیل
+                          :</p>
                         </td>
                         <td className="text-base text-qblack font-medium">
                           {dashBoardData.sellerInfo.phone}
@@ -325,7 +356,10 @@ export default function Dashboard({ dashBoardData }) {
                       </tr>
                       <tr className="flex mb-5">
                         <td className="text-base text-qgraytwo w-[100px] block capitalize">
-                          <p>{ServeLangItem()?.Address}:</p>
+                          <p>
+                          {/* {ServeLangItem()?.Address} */}
+                          آدرس
+                          :</p>
                         </td>
                         <td className="text-base text-qblack font-medium">
                           {dashBoardData.sellerInfo.address}
@@ -348,9 +382,18 @@ export default function Dashboard({ dashBoardData }) {
         </div>
         {/*account delete*/}
         <div className=" px-7 py-7 border border-[rgba(0, 0, 0, 0.1)] ">
-          <h2 className="text-2xl font-bold text-[#cf222e] mb-1">{ServeLangItem()?.Delete_Account}</h2>
-          <p className="text-base text-qgray mb-5">{ServeLangItem()?.Once_you_delete_your_account__there_is_no_going_back__Please_be_certain_}</p>
-          <button onClick={confirmHandler} type="button" className="py-[5px] px-[16px] border border-[rgba(0, 0, 0, 0.1)] bg-[#f6f8fa] text-[#cf222e] font-semibold tracking-wide text-sm hover:text-white hover:bg-[#cf222e] hover:border-[#cf222e] transition duration-300 ease-in-out">{ServeLangItem()?.Delete_Account}</button>
+          <h2 className="text-2xl font-bold text-[#cf222e] mb-1">
+          {/* {ServeLangItem()?.Delete_Account} */}
+          حذف حساب کاربری
+          </h2>
+          <p className="text-base text-qgray mb-5">
+          {/* {ServeLangItem()?.Once_you_delete_your_account__there_is_no_going_back__Please_be_certain_} */}
+          هنگامی که حساب خود را حذف کردید، هیچ بازگشتی وجود ندارد، لطفا مطمئن باشید
+          </p>
+          <button onClick={confirmHandler} type="button" className="py-[5px] px-[16px] border border-[rgba(0, 0, 0, 0.1)] bg-[#f6f8fa] text-[#cf222e] font-semibold tracking-wide text-sm hover:text-white hover:bg-[#cf222e] hover:border-[#cf222e] transition duration-300 ease-in-out">
+          {/* {ServeLangItem()?.Delete_Account} */}
+          حذف حساب کاربری
+          </button>
         </div>
         {confirmation && (
             <div className="w-full h-screen fixed left-0 top-0 z-40 flex justify-center items-center">
@@ -369,12 +412,21 @@ export default function Dashboard({ dashBoardData }) {
                   </div>
                   <div className="flex justify-center mb-7">
                     <div>
-                      <h2 className="text-2xl font-medium text-gray-700 mb-5 text-center">{ServeLangItem()?.Are_You_Sure}</h2>
-                      <p className="text-sm text-qgraytwo text-center px-2 leading-[24px]">{ServeLangItem()?.Do_you_really_want_to_delete_these_account_This_process_cannot_be_undone_}</p>
+                      <h2 className="text-2xl font-medium text-gray-700 mb-5 text-center">
+                      {/* {ServeLangItem()?.Are_You_Sure} */}
+                      مطمئنی
+                      </h2>
+                      <p className="text-sm text-qgraytwo text-center px-2 leading-[24px]">
+                      {/* {ServeLangItem()?.Do_you_really_want_to_delete_these_account_This_process_cannot_be_undone_} */}
+                      آیا واقعاً می‌خواهید این حساب‌ها را حذف کنید
+                      </p>
                     </div>
                   </div>
                   <div className="mb-5">
-                    <p className="text-sm text-qgraytwo leading-[24px]">Enter the email <span className="font-semibold text-gray-700">{auth().user.email}</span> to continue:</p>
+                    <p className="text-sm text-qgraytwo leading-[24px]">
+                    {/* Enter the email */}
+                    ایمیل را وارد کنید
+                     <span className="font-semibold text-gray-700">{auth().user.email}</span> ادامه:</p>
                     <input
                         className="input-field placeholder:text-sm text-sm px-6 text-dark-gray w-full h-[50px] border border-qgray-border h-full font-normal bg-white focus:ring-0 focus:outline-none h-[50px]"
                         type="text"
@@ -384,8 +436,14 @@ export default function Dashboard({ dashBoardData }) {
                   </div>
                   <div className="flex justify-center">
                     <div className="flex space-x-5 items-center">
-                      <button onClick={confirmHandler} type="button" className="text-qgraytwo text-base font-semibold capitalize">{ServeLangItem()?.cancel}</button>
-                      <button disabled={auth().user.email !== confirmUser} onClick={deleteUser} type="button" className="py-[10px] disabled:bg-opacity-50 disabled:cursor-not-allowed px-[26px]  font-semibold tracking-wide text-base text-white bg-[#cf222e] transition duration-300 ease-in-out">{ServeLangItem()?.Delete}</button>
+                      <button onClick={confirmHandler} type="button" className="text-qgraytwo text-base font-semibold capitalize">
+                      {/* {ServeLangItem()?.cancel} */}
+                      انصراف
+                      </button>
+                      <button disabled={auth().user.email !== confirmUser} onClick={deleteUser} type="button" className="py-[10px] disabled:bg-opacity-50 disabled:cursor-not-allowed px-[26px]  font-semibold tracking-wide text-base text-white bg-[#cf222e] transition duration-300 ease-in-out">
+                      {/* {ServeLangItem()?.Delete} */}
+                      حذف
+                      </button>
                     </div>
                   </div>
                 </div>

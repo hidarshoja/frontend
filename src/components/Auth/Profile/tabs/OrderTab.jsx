@@ -14,16 +14,20 @@ export default function OrderTab({ orders }) {
             {/* table heading */}
             <tr className="text-base text-qgray whitespace-nowrap px-2 border-b default-border-bottom ">
               <td className="py-4 block whitespace-nowrap text-center">
-                {ServeLangItem()?.Order}
+                {/* {ServeLangItem()?.Order} */}
+                سفارش
               </td>
               <td className="py-4 whitespace-nowrap text-center">
-                {ServeLangItem()?.Date}
+                {/* {ServeLangItem()?.Date} */}
+                تاریخ
               </td>
               <td className="py-4 whitespace-nowrap text-center">
-                {ServeLangItem()?.Amount}
+                {/* {ServeLangItem()?.Amount} */}
+                میزان
               </td>
               <td className="py-4 whitespace-nowrap  text-center">
-                {ServeLangItem()?.Action}
+                {/* {ServeLangItem()?.Action} */}
+                عمل
               </td>
             </tr>
             {/* table heading end */}
@@ -55,7 +59,10 @@ export default function OrderTab({ orders }) {
                     <div className="flex space-x-2 rtl:space-x-reverse items-center">
                       <Link href={`/order/${item.order_id}`}>
                         <div className="w-[116px] h-[46px] primary-bg text-qblack font-bold flex justify-center items-center cursor-pointer">
-                          <span>{ServeLangItem()?.View_Details}</span>
+                          <span>
+                          {/* {ServeLangItem()?.View_Details} */}
+                          دیدن جزئیات
+                          </span>
                         </div>
                       </Link>
                       {/*{item.order_status === "0" && (*/}

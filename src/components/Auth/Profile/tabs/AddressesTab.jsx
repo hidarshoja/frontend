@@ -243,7 +243,8 @@ export default function AddressesTab() {
         <div data-aos="zoom-in" className="w-full">
           <div className="flex justify-between items-center">
             <h1 className="sm:text-2xl text-xl text-qblack font-medium mb-5">
-              {ServeLangItem()?.Add_New_Address}
+              {/* {ServeLangItem()?.Add_New_Address} */}
+              اضافه کردن ادرس جدید 
             </h1>
             <span
               onClick={() => setNewAddress(!newAddress)}
@@ -268,8 +269,8 @@ export default function AddressesTab() {
               <div className="mb-6">
                 <div className="w-full  mb-5 sm:mb-0">
                   <InputCom
-                    label={ServeLangItem()?.Name + "*"}
-                    placeholder="Name"
+                    label={ "نام"}
+                    placeholder="نام خود را وارد کنید "
                     inputClasses="w-full h-[50px]"
                     value={fName}
                     inputHandler={(e) => setFname(e.target.value)}
@@ -288,8 +289,8 @@ export default function AddressesTab() {
               <div className="flex rtl:space-x-reverse space-x-5 items-center mb-6">
                 <div className="sm:w-1/2 w-full">
                   <InputCom
-                    label={ServeLangItem()?.Email + "*"}
-                    placeholder={ServeLangItem()?.Email}
+                    label={ "ایمیل "}
+                    placeholder={"ایمیل خود را وارد کنید "}
                     inputClasses="w-full h-[50px]"
                     value={email}
                     inputHandler={(e) => setEmail(e.target.value)}
@@ -305,8 +306,8 @@ export default function AddressesTab() {
                 </div>
                 <div className="sm:w-1/2 w-full">
                   <InputCom
-                    label={ServeLangItem()?.Phone_Number + "*"}
-                    placeholder="012 3  *******"
+                    label={ "شماره تماس"}
+                    placeholder="0915  *******"
                     inputClasses="w-full h-[50px]"
                     value={phone}
                     inputHandler={(e) => setPhone(e.target.value)}
@@ -323,7 +324,7 @@ export default function AddressesTab() {
               </div>
               <div className="mb-6">
                 <h1 className="input-label capitalize block  mb-2 text-qgray text-[13px] font-normal">
-                  {ServeLangItem()?.Country}*
+                کشور
                 </h1>
                 <div
                   className={`w-full h-[50px] border px-5 flex justify-between items-center border-qgray-border mb-2 ${

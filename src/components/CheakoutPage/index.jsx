@@ -49,6 +49,7 @@ function CheakoutPage() {
   const [subTotal, setSubTotal] = useState(null);
   const [shippingRules, setShipppingRules] = useState(null);
   const [shippingRulesByCityId, setShippingRulesByCityId] = useState([]);
+
   const [selectPayment, setPaymentMethod] = useState(null);
   //selectdRule store shipping price
   const [selectedRule, setSelectedRule] = useState(null);
@@ -66,6 +67,10 @@ function CheakoutPage() {
   // const [totalAmountWithCalc, setTotalAmountWithCalc] = useState(null);
   const [bankInfo, setBankInfo] = useState(null);
   const [discountCoupon, setDiscountCoupon] = useState(0);
+  const [loginUser , setLoginUser] = useState({});
+ 
+
+
   useEffect(() => {
     if (couponCode) {
       if (couponCode.offer_type === "2") {
@@ -269,6 +274,9 @@ function CheakoutPage() {
       });
   };
   useEffect(() => {
+
+    setLoginUser(JSON.parse(localStorage.getItem("auth")))
+
     if (auth()) {
       getAllAddress();
       axios
@@ -562,7 +570,32 @@ function CheakoutPage() {
     }
   };
   //=================placeOrder
+  // const url = "";
+ 
+  // useEffect(() => {  
+  //   setLoginUser(JSON.parse(localStorage.getItem("auth")))
+  //    }, []);
+
+ 
+  const cartUser = {
+    nameUser : loginUser.user,
+    listCart : carts,
+    total : mainTotalPrice  
+ }
+
+ console.log(cartUser);
+//  console.log("carts :",carts);
+
+ 
+  
+
+
   const placeOrderHandler = async () => {
+
+    // axios.post(url , cartUser)
+    // .then(res => console.log(res))
+    // .catch(err => console.log(err))
+
     if (auth()) {
       if (selectedBilling && selectedShipping) {
         if (selectedRule) {
@@ -870,12 +903,13 @@ function CheakoutPage() {
               ]}
             />
           </div>
-          <div className="checkout-main-content w-full">
+          <div className="checkout-main-content w-full" dir="rtl">
             <div className="container-x mx-auto">
               <div className="w-full lg:flex lg:space-x-[30px] rtl:space-x-reverse">
                 <div className="lg:w-4/6 w-full">
                   <h1 className="sm:text-2xl text-xl text-qblack font-medium mt-5 mb-5">
-                    {ServeLangItem()?.Addresses}
+                    {/* {ServeLangItem()?.Addresses} */}
+                    آدرس ها
                   </h1>
                   {!newAddress && (
                     <div className="addresses-widget w-full">
@@ -890,7 +924,8 @@ function CheakoutPage() {
                                 : "primary-text"
                             } `}
                           >
-                            {ServeLangItem()?.Billing_Address}
+                            {/* {ServeLangItem()?.Billing_Address} */}
+                            آدرس قبض
                           </button>
                           <button
                             onClick={() => setActiveAddress("shipping")}
@@ -901,7 +936,8 @@ function CheakoutPage() {
                                 : "primary-text"
                             } `}
                           >
-                            {ServeLangItem()?.Shipping_Address}
+                            {/* {ServeLangItem()?.Shipping_Address} */}
+                            ارسال آدرس
                           </button>
                         </div>
 
@@ -911,7 +947,8 @@ function CheakoutPage() {
                           className="w-[100px] h-[40px] mt-2 sm:mt-0 border border-qblack hover:bg-qblack hover:text-white transition-all duration-300 ease-in-out"
                         >
                           <span className="text-sm font-semibold">
-                            {ServeLangItem()?.Add_New}
+                            {/* {ServeLangItem()?.Add_New} */}
+                            جدید اضافه کن
                           </span>
                         </button>
                       </div>
@@ -934,7 +971,9 @@ function CheakoutPage() {
                               >
                                 <div className="flex justify-between items-center">
                                   <p className="title text-[22px] font-semibold">
-                                    {ServeLangItem()?.Address} #{i + 1}
+                                    {/* {ServeLangItem()?.Address}  */}
+                                    ادرس
+                                    #{i + 1}
                                   </p>
                                   <button
                                     onClick={() => deleteAddress(address.id)}
@@ -964,7 +1003,9 @@ function CheakoutPage() {
                                     <tbody>
                                       <tr className="flex mb-3">
                                         <td className="text-base text-qgraytwo w-[70px] block line-clamp-1 capitalize">
-                                          {ServeLangItem()?.Name}:
+                                          {/* {ServeLangItem()?.Name} */}
+                                          نام
+                                          :
                                         </td>
                                         <td className="text-base text-qblack line-clamp-1 font-medium">
                                           {address.name}
@@ -972,7 +1013,9 @@ function CheakoutPage() {
                                       </tr>
                                       <tr className="flex mb-3">
                                         <td className="text-base text-qgraytwo w-[70px] block line-clamp-1 capitalize">
-                                          {ServeLangItem()?.Email}:
+                                          {/* {ServeLangItem()?.Email} */}
+                                          ایمیل
+                                          :
                                         </td>
                                         <td className="text-base text-qblack line-clamp-1 font-medium">
                                           {address.email}
@@ -980,7 +1023,9 @@ function CheakoutPage() {
                                       </tr>
                                       <tr className="flex mb-3">
                                         <td className="text-base text-qgraytwo w-[70px] block line-clamp-1 capitalize">
-                                          {ServeLangItem()?.phone}:
+                                          {/* {ServeLangItem()?.phone} */}
+                                          شماره تلفن
+                                          :
                                         </td>
                                         <td className="text-base text-qblack line-clamp-1 font-medium">
                                           {address.phone}
@@ -988,7 +1033,9 @@ function CheakoutPage() {
                                       </tr>
                                       <tr className="flex mb-3">
                                         <td className="text-base text-qgraytwo w-[70px] block line-clamp-1 capitalize">
-                                          {ServeLangItem()?.Country}:
+                                          {/* {ServeLangItem()?.Country} */}
+                                          کشور
+                                          :
                                         </td>
                                         <td className="text-base text-qblack line-clamp-1 font-medium">
                                           {address.country.name}
@@ -996,7 +1043,9 @@ function CheakoutPage() {
                                       </tr>
                                       <tr className="flex mb-3">
                                         <td className="text-base text-qgraytwo w-[70px] block line-clamp-1 capitalize">
-                                          {ServeLangItem()?.State}:
+                                          {/* {ServeLangItem()?.State} */}
+                                          استان
+                                          :
                                         </td>
                                         <td className="text-base text-qblack line-clamp-1 font-medium">
                                           {address.country_state.name}
@@ -1004,7 +1053,9 @@ function CheakoutPage() {
                                       </tr>
                                       <tr className="flex mb-3">
                                         <td className="text-base text-qgraytwo w-[70px] block line-clamp-1 capitalize">
-                                          {ServeLangItem()?.City}:
+                                          {/* {ServeLangItem()?.City} */}
+                                          شهر
+                                          :
                                         </td>
                                         <td className="text-base text-qblack line-clamp-1 font-medium">
                                           {address.city.name}
@@ -1015,7 +1066,8 @@ function CheakoutPage() {
                                 </div>
                                 {address.id === selectedBilling && (
                                   <span className="text-qblack primary-bg px-2 text-sm absolute right-2 -top-2 font-medium">
-                                    {ServeLangItem()?.Selected}
+                                    {/* {ServeLangItem()?.Selected} */}
+                                    انتخاب کنید
                                   </span>
                                 )}
                               </div>
@@ -1045,7 +1097,9 @@ function CheakoutPage() {
                               >
                                 <div className="flex justify-between items-center">
                                   <p className="title text-[22px] font-semibold">
-                                    {ServeLangItem()?.Address} #{i + 1}
+                                    {/* {ServeLangItem()?.Address} */}
+                                    ادرس
+                                     #{i + 1}
                                   </p>
                                   <button
                                     onClick={() => deleteAddress(address.id)}
@@ -1075,7 +1129,9 @@ function CheakoutPage() {
                                     <tbody>
                                       <tr className="flex mb-3">
                                         <td className="text-base text-qgraytwo w-[70px] block line-clamp-1 capitalize">
-                                          {ServeLangItem()?.Name}:
+                                          {/* {ServeLangItem()?.Name} */}
+                                          نام
+                                          :
                                         </td>
                                         <td className="text-base text-qblack line-clamp-1 font-medium">
                                           {address.name}
@@ -1083,7 +1139,9 @@ function CheakoutPage() {
                                       </tr>
                                       <tr className="flex mb-3">
                                         <td className="text-base text-qgraytwo w-[70px] block line-clamp-1 capitalize">
-                                          {ServeLangItem()?.Email}:
+                                          {/* {ServeLangItem()?.Email} */}
+                                          ایمیل
+                                          :
                                         </td>
                                         <td className="text-base text-qblack line-clamp-1 font-medium">
                                           {address.email}
@@ -1091,7 +1149,9 @@ function CheakoutPage() {
                                       </tr>
                                       <tr className="flex mb-3">
                                         <td className="text-base text-qgraytwo w-[70px] block line-clamp-1 capitalize">
-                                          {ServeLangItem()?.phone}:
+                                          {/* {ServeLangItem()?.phone} */}
+                                          شماره تماس
+                                          :
                                         </td>
                                         <td className="text-base text-qblack line-clamp-1 font-medium">
                                           {address.phone}
@@ -1099,7 +1159,9 @@ function CheakoutPage() {
                                       </tr>
                                       <tr className="flex mb-3">
                                         <td className="text-base text-qgraytwo w-[70px] block line-clamp-1 capitalize">
-                                          {ServeLangItem()?.Country}:
+                                          {/* {ServeLangItem()?.Country} */}
+                                          کشور
+                                          :
                                         </td>
                                         <td className="text-base text-qblack line-clamp-1 font-medium">
                                           {address.country.name}
@@ -1107,7 +1169,9 @@ function CheakoutPage() {
                                       </tr>
                                       <tr className="flex mb-3">
                                         <td className="text-base text-qgraytwo w-[70px] block line-clamp-1 capitalize">
-                                          {ServeLangItem()?.State}:
+                                          {/* {ServeLangItem()?.State} */}
+                                          ادرس
+                                          :
                                         </td>
                                         <td className="text-base text-qblack line-clamp-1 font-medium">
                                           {address.country_state.name}
@@ -1115,7 +1179,9 @@ function CheakoutPage() {
                                       </tr>
                                       <tr className="flex mb-3">
                                         <td className="text-base text-qgraytwo w-[70px] block line-clamp-1 capitalize">
-                                          {ServeLangItem()?.City}:
+                                          {/* {ServeLangItem()?.City} */}
+                                          شهر
+                                          :
                                         </td>
                                         <td className="text-base text-qblack line-clamp-1 font-medium">
                                           {address.city.name}
@@ -1126,7 +1192,8 @@ function CheakoutPage() {
                                 </div>
                                 {address.id === selectedShipping && (
                                   <span className="text-qblack primary-bg px-2 text-sm absolute right-2 -top-2 font-medium">
-                                    {ServeLangItem()?.Selected}
+                                    {/* {ServeLangItem()?.Selected} */}
+                                    انتخاب کنید
                                   </span>
                                 )}
                               </div>
@@ -1139,7 +1206,8 @@ function CheakoutPage() {
                     <div data-aos="zoom-in" className="w-full">
                       <div className="flex justify-between items-center">
                         <h1 className="sm:text-2xl text-xl text-qblack font-medium mb-5">
-                          {ServeLangItem()?.Add_new_address}
+                          {/* {ServeLangItem()?.Add_new_address} */}
+                          اضافه کردن ادرس جدید
                         </h1>
                         <span
                           onClick={() => setNewAddress(!newAddress)}
@@ -1165,8 +1233,8 @@ function CheakoutPage() {
                             <div className="sm:flex sm:space-x-5 items-center">
                               <div className="sm:w-1/2 w-full  mb-5 sm:mb-0">
                                 <InputCom
-                                  label={ServeLangItem()?.First_Name + "*"}
-                                  placeholder={ServeLangItem()?.Name}
+                                  label={ "نام"}
+                                  placeholder={"نام خود را وارد کنید"}
                                   inputClasses="w-full h-[50px]"
                                   value={fName}
                                   inputHandler={(e) => setFname(e.target.value)}
@@ -1177,8 +1245,8 @@ function CheakoutPage() {
                               </div>
                               <div className="sm:w-1/2 w-full">
                                 <InputCom
-                                  label={ServeLangItem()?.Last_Name + "*"}
-                                  placeholder={ServeLangItem()?.Name}
+                                  label={"نام خانوادگی"}
+                                  placeholder={"نام خانوادگی خود را وارد کنید"}
                                   inputClasses="w-full h-[50px]"
                                   value={lName}
                                   inputHandler={(e) => setlname(e.target.value)}
@@ -1200,8 +1268,8 @@ function CheakoutPage() {
                           <div className="flex space-x-5 items-center mb-6">
                             <div className="sm:w-1/2 w-full">
                               <InputCom
-                                label={ServeLangItem()?.Email_Address + "*"}
-                                placeholder={ServeLangItem()?.Email}
+                                label={ "ایمیل"}
+                                placeholder={"ایمیل خود را وارد کنید"}
                                 inputClasses="w-full h-[50px]"
                                 value={email}
                                 inputHandler={(e) => setEmail(e.target.value)}
@@ -1219,8 +1287,8 @@ function CheakoutPage() {
                             </div>
                             <div className="sm:w-1/2 w-full">
                               <InputCom
-                                label={ServeLangItem()?.Phone_Number + "*"}
-                                placeholder="012 3  *******"
+                                label={"شماره تماس"}
+                                placeholder="0915"
                                 inputClasses="w-full h-[50px]"
                                 value={phone}
                                 inputHandler={(e) => setPhone(e.target.value)}
@@ -1239,7 +1307,8 @@ function CheakoutPage() {
                           </div>
                           <div className="mb-6">
                             <h1 className="input-label capitalize block  mb-2 text-qgray text-[13px] font-normal">
-                              {ServeLangItem()?.Country}*
+                              {/* {ServeLangItem()?.Country}* */}
+                              کشور
                             </h1>
                             <div
                               className={`w-full h-[50px] border px-5 flex justify-between items-center mb-2 ${
@@ -1292,7 +1361,8 @@ function CheakoutPage() {
                           <div className="flex space-x-5 items-center mb-6">
                             <div className="w-1/2">
                               <h1 className="input-label capitalize block  mb-2 text-qgray text-[13px] font-normal">
-                                {ServeLangItem()?.State}*
+                                {/* {ServeLangItem()?.State}* */}
+                                استان 
                               </h1>
                               <div
                                 className={`w-full h-[50px] border px-5 flex justify-between items-center mb-2 ${
@@ -1344,7 +1414,8 @@ function CheakoutPage() {
                             </div>
                             <div className="w-1/2">
                               <h1 className="input-label capitalize block  mb-2 text-qgray text-[13px] font-normal">
-                                {ServeLangItem()?.City}*
+                                {/* {ServeLangItem()?.City}* */}
+                                شهر
                               </h1>
                               <div
                                 className={`w-full h-[50px] border px-5 flex justify-between items-center mb-2 ${
@@ -1400,8 +1471,8 @@ function CheakoutPage() {
                               <InputCom
                                 value={address}
                                 inputHandler={(e) => setAddress(e.target.value)}
-                                label={ServeLangItem()?.Address + "*"}
-                                placeholder={ServeLangItem()?.your_address_here}
+                                label={"ادرس"}
+                                placeholder={"ادرس خود را وارد کنید"}
                                 inputClasses="w-full h-[50px]"
                                 error={
                                   !!(errors && Object.hasOwn(errors, "address"))
@@ -1434,7 +1505,8 @@ function CheakoutPage() {
                                 htmlFor="home"
                                 className="text-qblack text-[15px] select-none capitalize"
                               >
-                                {ServeLangItem()?.home}
+                                {/* {ServeLangItem()?.home} */}
+                                منزل
                               </label>
                             </div>
                             <div className="flex space-x-2 items-center mb-10">
@@ -1454,7 +1526,8 @@ function CheakoutPage() {
                                 htmlFor="office"
                                 className="text-qblack text-[15px] select-none"
                               >
-                                {ServeLangItem()?.Office}
+                                {/* {ServeLangItem()?.Office} */}
+                                محل کار
                               </label>
                             </div>
                           </div>
@@ -1464,7 +1537,9 @@ function CheakoutPage() {
                             className="w-full h-[50px]"
                           >
                             <div className="yellow-btn">
-                              <span className="text-sm">Save Address</span>
+                              <span className="text-sm">
+                              ذخیره آدرس
+                              </span>
                               {loading && (
                                 <span
                                   className="w-5 "
@@ -1483,7 +1558,8 @@ function CheakoutPage() {
                 <div className="flex-1">
                   <div className="mb-10">
                     <h1 className="sm:text-2xl text-xl text-qblack font-medium mt-5 mb-5">
-                      {ServeLangItem()?.Apply_Coupon}
+                      {/* {ServeLangItem()?.Apply_Coupon} */}
+                      درخواست کوپن
                     </h1>
                     <div className="discount-code  w-full mb-5 sm:mb-0 h-[50px] flex ">
                       <div className="flex-1 h-full">
@@ -1491,7 +1567,7 @@ function CheakoutPage() {
                           value={inputCoupon}
                           inputHandler={(e) => setInputCoupon(e.target.value)}
                           type="text"
-                          placeholder="Discount Code"
+                          placeholder="کد تخفیف"
                         />
                       </div>
                       <button
@@ -1500,23 +1576,27 @@ function CheakoutPage() {
                         className="w-[90px] h-[50px] black-btn"
                       >
                         <span className="text-sm font-semibold">
-                          {ServeLangItem()?.Apply}
+                          {/* {ServeLangItem()?.Apply} */}
+                          درخواست دادن
                         </span>
                       </button>
                     </div>
                   </div>
                   <h1 className="sm:text-2xl text-xl text-qblack font-medium mt-5 mb-5">
-                    {ServeLangItem()?.Order_Summary}
+                    {/* {ServeLangItem()?.Order_Summary} */}
+                    خلاصه سفارش
                   </h1>
 
                   <div className="w-full px-10 py-[30px] border border-[#EDEDED]">
                     <div className="sub-total mb-6">
                       <div className=" flex justify-between mb-5">
                         <p className="text-[13px] font-medium text-qblack uppercase">
-                          {ServeLangItem()?.Product}
+                          {/* {ServeLangItem()?.Product} */}
+                          محصولات
                         </p>
                         <p className="text-[13px] font-medium text-qblack uppercase">
-                          {ServeLangItem()?.total}
+                          {/* {ServeLangItem()?.total} */}
+                          جمع
                         </p>
                       </div>
                       <div className="w-full h-[1px] bg-[#EDEDED]"></div>
@@ -1569,35 +1649,40 @@ function CheakoutPage() {
                     <div className="mt-[20px]">
                       <div className=" flex justify-between mb-5">
                         <p className="text-[13px] text-qblack uppercase font-bold">
-                          {ServeLangItem()?.SUBTOTAL}
+                          {/* {ServeLangItem()?.SUBTOTAL} */}
+                          جمع کل
                         </p>
                         <p
                           suppressHydrationWarning
                           className="text-[15px] font-bold text-qblack uppercase"
                         >
                           {currency_icon
-                            ? currency_icon + parseFloat(totalPrice).toFixed(2)
-                            : parseFloat(totalPrice).toFixed(2)}
+                            ? parseFloat(totalPrice).toFixed(3) + " تومان " 
+                            : parseFloat(totalPrice).toFixed(3) + " تومان "}
                         </p>
                       </div>
                       <div className=" flex justify-between mb-5">
                         <p className="text-[13px] text-qblack uppercase font-bold">
-                          {ServeLangItem()?.Discount_coupon} (-)
+                          {/* {ServeLangItem()?.Discount_coupon} */}
+                          کوپن تخفیف
+                           (-)
                         </p>
                         <p
                           suppressHydrationWarning
                           className="text-[15px] font-bold text-qblack uppercase"
                         >
                           {currency_icon
-                            ? currency_icon +
-                              parseFloat(discountCoupon).toFixed(2)
-                            : parseFloat(discountCoupon).toFixed(2)}
+                            ? 
+                              parseFloat(discountCoupon).toFixed(3) +" تومان "
+                            : parseFloat(discountCoupon).toFixed(3) +" تومان "}
                         </p>
                       </div>
                     </div>
                     <div className="shipping mb-6 mt-6">
                       <span className="text-[15px] font-medium text-qblack mb-[18px] block">
-                        {ServeLangItem()?.Shipping} (+)
+                        {/* {ServeLangItem()?.Shipping} */}
+                        هزینه ارسال
+                         (+)
                       </span>
                       <div className="flex flex-col space-y-2.5">
                         {shippingRulesByCityId &&
@@ -1636,9 +1721,9 @@ function CheakoutPage() {
                                             className="text-[15px] text-normal text-qgraytwo"
                                           >
                                             {currency_icon
-                                              ? currency_icon +
-                                                rule.shipping_fee
-                                              : rule.shipping_fee}
+                                              ? 
+                                                rule.shipping_fee + " تومان  "
+                                              : rule.shipping_fee + " تومان "}
                                           </span>
                                         </div>
                                       ) : parseInt(rule.condition_to) === -1 ? (
@@ -1667,9 +1752,9 @@ function CheakoutPage() {
                                             className="text-[15px] text-normal text-qgraytwo"
                                           >
                                             {currency_icon
-                                              ? currency_icon +
-                                                rule.shipping_fee
-                                              : rule.shipping_fee}
+                                              ? 
+                                                rule.shipping_fee + " تومان  "
+                                              : rule.shipping_fee + " تومان "}
                                           </span>
                                         </div>
                                       ) : (
@@ -1710,10 +1795,14 @@ function CheakoutPage() {
                                             suppressHydrationWarning
                                             className="text-[15px] text-normal text-qgraytwo"
                                           >
-                                            {currency_icon
+                                            {/* {currency_icon
                                               ? currency_icon +
                                                 rule.shipping_fee
-                                              : rule.shipping_fee}
+                                              : rule.shipping_fee} */}
+                                              {currency_icon
+                                              ? 
+                                                rule.shipping_fee + " تومان  "
+                                              : rule.shipping_fee + " تومان "}
                                           </span>
                                         </div>
                                       ) : parseInt(rule.condition_to) === -1 ? (
@@ -1741,10 +1830,14 @@ function CheakoutPage() {
                                             suppressHydrationWarning
                                             className="text-[15px] text-normal text-qgraytwo"
                                           >
-                                            {currency_icon
+                                            {/* {currency_icon
                                               ? currency_icon +
                                                 rule.shipping_fee
-                                              : rule.shipping_fee}
+                                              : rule.shipping_fee} */}
+                                              {currency_icon
+                                              ? 
+                                                rule.shipping_fee + " تومان  "
+                                              : rule.shipping_fee + " تومان "}
                                           </span>
                                         </div>
                                       ) : (
@@ -1785,10 +1878,14 @@ function CheakoutPage() {
                                             suppressHydrationWarning
                                             className="text-[15px] text-normal text-qgraytwo"
                                           >
-                                            {currency_icon
+                                            {/* {currency_icon
                                               ? currency_icon +
                                                 rule.shipping_fee
-                                              : rule.shipping_fee}
+                                              : rule.shipping_fee} */}
+                                              {currency_icon
+                                              ? 
+                                                rule.shipping_fee + " تومان  "
+                                              : rule.shipping_fee + " تومان "}
                                           </span>
                                         </div>
                                       ) : parseInt(rule.condition_to) == -1 ? (
@@ -1816,10 +1913,14 @@ function CheakoutPage() {
                                             suppressHydrationWarning
                                             className="text-[15px] text-normal text-qgraytwo"
                                           >
-                                            {currency_icon
+                                            {/* {currency_icon
                                               ? currency_icon +
                                                 rule.shipping_fee
-                                              : rule.shipping_fee}
+                                              : rule.shipping_fee} */}
+                                              {currency_icon
+                                              ? 
+                                                rule.shipping_fee + " تومان  "
+                                              : rule.shipping_fee + " تومان "}
                                           </span>
                                         </div>
                                       ) : (
@@ -1836,16 +1937,17 @@ function CheakoutPage() {
                     <div className="mt-[30px]">
                       <div className=" flex justify-between mb-5">
                         <p className="text-2xl font-medium text-qblack capitalize">
-                          {ServeLangItem()?.total}
+                          {/* {ServeLangItem()?.total} */}
+                          جمع
                         </p>
                         <p
                           suppressHydrationWarning
                           className="text-2xl font-medium text-qred"
                         >
                           {currency_icon
-                            ? currency_icon +
-                              (mainTotalPrice - discountCoupon).toFixed(2)
-                            : (mainTotalPrice - discountCoupon).toFixed(2)}
+                            ? 
+                              (mainTotalPrice - discountCoupon).toFixed(3) + " تومان "
+                            : (mainTotalPrice - discountCoupon).toFixed(3) + " تومان "}
                         </p>
                       </div>
                     </div>
@@ -1866,7 +1968,8 @@ function CheakoutPage() {
                             >
                               <div className="w-full">
                                 <span className="text-qblack font-bold text-base">
-                                  {ServeLangItem()?.Cash_On_Delivery}
+                                  {/* {ServeLangItem()?.Cash_On_Delivery} */}
+                                  پرداخت نقدی هنگام تحویل
                                 </span>
                               </div>
                               {selectPayment === "cashOnDelivery" && (
@@ -1890,7 +1993,7 @@ function CheakoutPage() {
                               )}
                             </div>
                           )}
-                          {stripeStatus && (
+                          {/* {stripeStatus && (
                             <div
                               onClick={() => setPaymentMethod("stripe")}
                               className={`payment-item text-center bg-[#F8F8F8] relative w-full h-[50px] font-bold text-sm text-white primary-text  flex justify-center items-center px-3 uppercase cursor-pointer ${
@@ -1937,8 +2040,8 @@ function CheakoutPage() {
                                 </span>
                               )}
                             </div>
-                          )}
-                          {rezorPayStatue && (
+                          )} */}
+                          {/* {rezorPayStatue && (
                             <div
                               onClick={() => setPaymentMethod("razorpay")}
                               className={`payment-item text-center bg-[#F8F8F8] relative w-full h-[50px] font-bold text-sm text-white primary-text  flex justify-center items-center px-3 uppercase cursor-pointer ${
@@ -1984,8 +2087,8 @@ function CheakoutPage() {
                                 </span>
                               )}
                             </div>
-                          )}
-                          {flutterWaveStatus && (
+                          )} */}
+                          {/* {flutterWaveStatus && (
                             <div
                               onClick={() => setPaymentMethod("flutterWave")}
                               className={`payment-item text-center bg-[#F8F8F8] relative w-full h-[50px] font-bold text-sm text-white primary-text  flex justify-center items-center px-3 uppercase cursor-pointer ${
@@ -2041,8 +2144,8 @@ function CheakoutPage() {
                                 </span>
                               )}
                             </div>
-                          )}
-                          {mollieStatus && (
+                          )} */}
+                          {/* {mollieStatus && (
                             <div
                               onClick={() => setPaymentMethod("mollie")}
                               className={`payment-item text-center bg-[#F8F8F8] relative w-full h-[50px] font-bold text-sm text-white primary-text  flex justify-center items-center px-3 uppercase cursor-pointer ${
@@ -2088,8 +2191,8 @@ function CheakoutPage() {
                                 </span>
                               )}
                             </div>
-                          )}
-                          {fatoorahStatus && (
+                          )} */}
+                          {/* {fatoorahStatus && (
                               <div
                                   onClick={() => setPaymentMethod("myfatoorah")}
                                   className={`payment-item text-center bg-[#F8F8F8] relative w-full h-[50px] font-bold text-sm text-white primary-text  flex justify-center items-center px-3 uppercase cursor-pointer ${
@@ -2144,8 +2247,8 @@ function CheakoutPage() {
                                 </span>
                                 )}
                               </div>
-                          )}
-                          {instaMojoStatus && (
+                          )} */}
+                          {/* {instaMojoStatus && (
                             <div
                               onClick={() => setPaymentMethod("instamojo")}
                               className={`payment-item text-center bg-[#F8F8F8] relative w-full h-[50px] font-bold text-sm text-white primary-text  flex justify-center items-center px-3 uppercase cursor-pointer ${
@@ -2203,7 +2306,7 @@ function CheakoutPage() {
                                 </span>
                               )}
                             </div>
-                          )}
+                          )} */}
                           {payStackStatus && (
                             <div
                               onClick={() => setPaymentMethod("paystack")}
@@ -2253,7 +2356,7 @@ function CheakoutPage() {
                               )}
                             </div>
                           )}
-                          {paypalStatus && (
+                          {/* {paypalStatus && (
                             <div
                               onClick={() => setPaymentMethod("paypal")}
                               className={`payment-item text-center bg-[#F8F8F8] relative w-full h-[50px] font-bold text-sm text-white primary-text  flex justify-center items-center px-3 uppercase cursor-pointer ${
@@ -2316,7 +2419,7 @@ function CheakoutPage() {
                                 </span>
                               )}
                             </div>
-                          )}
+                          )} */}
                           {bankPaymentStatus && (
                             <div
                               onClick={() => setPaymentMethod("bankpayment")}
@@ -2328,7 +2431,8 @@ function CheakoutPage() {
                             >
                               <div className="w-full">
                                 <span className="text-qblack font-bold text-base">
-                                  {ServeLangItem()?.Bank_Payment}
+                                  {/* {ServeLangItem()?.Bank_Payment} */}
+                                  پرداخت بانکی
                                 </span>
                               </div>
                               {selectPayment === "bankpayment" && (
@@ -2431,7 +2535,7 @@ function CheakoutPage() {
                               <div className="flex space-x-2 items-center">
                                 <div className="input-item mb-5">
                                   <InputCom
-                                    placeholder="Expire Date"
+                                    placeholder="تاریخ انقضا"
                                     name="date"
                                     type="date"
                                     inputClasses="h-[50px]"
@@ -2449,7 +2553,8 @@ function CheakoutPage() {
                                   Object.hasOwn(stripeError, "month") &&
                                   Object.hasOwn(stripeError, "year") ? (
                                     <span className="text-sm mt-1 text-qred">
-                                      {ServeLangItem()?.Date_in_required}
+                                      {/* {ServeLangItem()?.Date_in_required} */}
+                                      تاریخ لازم است
                                     </span>
                                   ) : (
                                     ""
@@ -2482,7 +2587,7 @@ function CheakoutPage() {
                               </div>
                               <div className="input-item mb-5">
                                 <InputCom
-                                  placeholder="Card Holder"
+                                  placeholder="صاحب کارت"
                                   name="card"
                                   type="text"
                                   inputClasses="h-[50px]"
@@ -2499,7 +2604,8 @@ function CheakoutPage() {
                               >
                                 <div className="w-full h-[50px] black-btn flex justify-center items-center">
                                   <span className="text-sm font-semibold">
-                                    {ServeLangItem()?.Place_Order_Now}
+                                    {/* {ServeLangItem()?.Place_Order_Now} */}
+                                    اکنون سفارش دهید
                                   </span>
                                   {strpLoad && (
                                     <span
@@ -2525,7 +2631,8 @@ function CheakoutPage() {
                             </pre>
                           </div>
                           <h6 className="input-label  capitalize text-[13px] font-600 leading-[24px] text-qblack block mb-2 ">
-                            {ServeLangItem()?.Transaction_Information}*
+                            {/* {ServeLangItem()?.Transaction_Information}* */}
+                            تراکنش_اطلاعات
                           </h6>
                           <textarea
                             name=""
@@ -2547,7 +2654,8 @@ function CheakoutPage() {
                     >
                       <div className="w-full h-[50px] black-btn flex justify-center items-center">
                         <span className="text-sm font-semibold">
-                          {ServeLangItem()?.Place_Order_Now}
+                          {/* {ServeLangItem()?.Place_Order_Now} */}
+                          ثبت سفارش
                         </span>
                       </div>
                     </button>

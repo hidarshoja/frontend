@@ -75,15 +75,18 @@ export default function WishlistTab({ className }) {
               {/* table heading */}
               <tr className="text-[13px] font-medium text-black bg-[#F6F6F6] whitespace-nowrap px-2 border-b default-border-bottom uppercase">
                 <td className="py-4 ltr:pl-10 rtl:pr-10 block whitespace-nowrap">
-                  {ServeLangItem()?.Product}
+                  {/* {ServeLangItem()?.Product} */}
+                  محصولات
                 </td>
 
                 <td className="py-4 whitespace-nowrap text-center">
-                  {ServeLangItem()?.Price}
+                  {/* {ServeLangItem()?.Price} */}
+                  مبلغ
                 </td>
 
                 <td className="py-4 whitespace-nowrap text-center block">
-                  {ServeLangItem()?.Action}
+                  {/* {ServeLangItem()?.Action} */}
+                  عمل
                 </td>
               </tr>
               {/*table heading end*/}
@@ -153,18 +156,20 @@ export default function WishlistTab({ className }) {
           </table>
         </div>
       </div>
-      <div className="w-full mt-[30px] flex sm:justify-end justify-start">
+      <div className="w-full mt-[30px] flex sm:justify-end justify-start" dir="rtl">
         <div className="sm:flex sm:space-x-[30px] rtl:space-x-reverse items-center">
           <button onClick={clearList} type="button">
             <div className="w-full text-sm font-semibold text-qred mb-5 sm:mb-0">
-              {ServeLangItem()?.Clean_Wishlist}
+              {/* {ServeLangItem()?.Clean_Wishlist} */}
+                پاک کردن فهرست
             </div>
           </button>
           <Link href="/cart">
             <div className="w-[180px] h-[50px]">
               <div className="yellow-btn flex justify-center">
                 <span className="w-full text-sm font-semibold text-center">
-                  {ServeLangItem()?.View_Cards}
+                  {/* {ServeLangItem()?.View_Cards} */}
+                  مشاهده کارت ها
                 </span>
               </div>
             </div>

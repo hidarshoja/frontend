@@ -95,9 +95,9 @@ export default function PasswordTab() {
           <div className="input-field mb-6">
             <label
               className="input-label text-qgray text-sm block mb-2.5"
-              htmlFor="old_password"
-            >
-              {ServeLangItem()?.Old_Password}*
+              htmlFor="old_password">
+              {/* {ServeLangItem()?.Old_Password}* */}
+              رمز عبور قدیمی
             </label>
             <div className="input-wrapper border border-[#E8E8E8] w-full  h-[58px] overflow-hidden relative ">
               <input
@@ -170,7 +170,8 @@ export default function PasswordTab() {
               className="input-label text-qgray text-sm block mb-2.5"
               htmlFor="old_password"
             >
-              {ServeLangItem()?.Password}*
+              {/* {ServeLangItem()?.Password}* */}
+              رمز عبور
             </label>
             <div className="input-wrapper border border-[#E8E8E8] w-full  h-[58px] overflow-hidden relative ">
               <input
@@ -243,7 +244,8 @@ export default function PasswordTab() {
               className="input-label text-qgray text-sm block mb-2.5"
               htmlFor="old_password"
             >
-              {ServeLangItem()?.Re_enter_Password}*
+              {/* {ServeLangItem()?.Re_enter_Password}* */}
+              رمز عبور را دوباره وارد کنید
             </label>
             <div className="input-wrapper border border-[#E8E8E8] w-full  h-[58px] overflow-hidden relative ">
               <input
@@ -320,13 +322,15 @@ export default function PasswordTab() {
                   className="yellow-btn "
                 >
                   <div className="w-full text-sm font-semibold ">
-                    {ServeLangItem()?.Update_Password}
+                    {/* {ServeLangItem()?.Update_Password} */}
+                    به روز رسانی رمز عبور
                   </div>
                 </button>
               </div>
               <button onClick={cancelHandler} type="button">
                 <div className="w-full text-sm font-semibold text-qblack mb-5 sm:mb-0">
-                  {ServeLangItem()?.Cancel}
+                  {/* {ServeLangItem()?.Cancel} */}
+                  انصراف
                 </div>
               </button>
             </div>

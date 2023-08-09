@@ -169,7 +169,7 @@ export default function Footer({ settings }) {
                 <Youtube className="fill-current text-qgray hover:text-qblack" />
               </a>
             </div>
-            <span className="sm:text-base text-[10px] text-qgray font-300">
+            <span className="">
               ©2022
               <Link
                 href="https://quomodosoft.com/"
