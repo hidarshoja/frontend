@@ -4,13 +4,14 @@ import { far } from "@fortawesome/free-regular-svg-icons";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import TimeAgo from "javascript-time-ago";
+import TimeAgo from 'javascript-time-ago'
 
-import en from "javascript-time-ago/locale/en.json";
-import ru from "javascript-time-ago/locale/ru.json";
+import en from 'javascript-time-ago/locale/en.json'
+import ru from 'javascript-time-ago/locale/ru.json'
 
-TimeAgo.addDefaultLocale(en);
-TimeAgo.addLocale(ru);
+TimeAgo.addDefaultLocale(en)
+TimeAgo.addLocale(ru)
+
 
 import { useEffect, useState } from "react";
 import { Provider } from "react-redux";
@@ -28,9 +29,9 @@ import "../styles/selectbox.css";
 import Router from "next/router";
 import NProgress from "nprogress"; //nprogress module
 import "nprogress/nprogress.css";
-import LoginContext from "../src/components/Contexts/LoginContext";
-import MessageContext from "../src/components/Contexts/MessageContext";
 import MaintenanceWrapper from "../src/components/Partials/Headers/MaintenanceWrapper";
+import MessageContext from "../src/components/Contexts/MessageContext";
+import LoginContext from "../src/components/Contexts/LoginContext";
 import auth from "../utils/auth";
 //Binding events.
 Router.events.on("routeChangeStart", () => NProgress.start());
@@ -49,10 +50,10 @@ function MyApp({ Component, pageProps }) {
   const [toggleMessage, setToggleMessage] = useState(false);
   const [addNewSeller, setNewSeller] = useState(null);
   const toggleHandler = (value) => {
-    if (auth()) {
-      if (value) {
-        setNewSeller(value);
-      } else {
+    if(auth()){
+      if(value){
+        setNewSeller(value)
+      }else{
         setNewSeller(null);
       }
       setToggleMessage(!toggleMessage);
@@ -62,24 +63,20 @@ function MyApp({ Component, pageProps }) {
     AOS.init();
   }, []);
   return (
-    <div style={{ fontFamily: "Shabnam" }}>
+    <div style={{fontFamily:"Shabnam"}}>
       <Provider store={store}>
         <MessageContext.Provider
-          value={{
-            toggle: toggleMessage,
-            toggleHandler: toggleHandler,
-            newSeller: addNewSeller,
-          }}
+            value={{ toggle: toggleMessage, toggleHandler: toggleHandler,newSeller:addNewSeller }}
         >
-          <DefaultLayout>
-            <LoginContext.Provider
+          <LoginContext.Provider
               value={{ loginPopup: loginPopup, handlerPopup: handlerPopup }}
-            >
+          >
+            <DefaultLayout>
               <MaintenanceWrapper>
                 <Component {...pageProps} />
               </MaintenanceWrapper>
-            </LoginContext.Provider>
-          </DefaultLayout>
+            </DefaultLayout>
+          </LoginContext.Provider>
         </MessageContext.Provider>
       </Provider>
       <Toaster />
